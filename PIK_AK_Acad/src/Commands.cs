@@ -12,9 +12,9 @@ namespace PIK_AK_Acad
 {
     public class Commands
     {
-        public const string group = "PIK";
+        public const string Group = "PIK";
 
-        [CommandMethod(group, nameof(AK_Counters), CommandFlags.Modal)]
+        [CommandMethod(Group, nameof(AK_Counters), CommandFlags.Modal)]
         public void AK_Counters()
         {
             AcadLib.CommandStart.Start(doc =>
