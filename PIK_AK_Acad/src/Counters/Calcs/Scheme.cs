@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PIK_AK_Acad.Counters.Calc
+namespace PIK_AK_Acad.Counters.Calcs
 {
     /// <summary>
     /// Схема счетчиков - из Excel
@@ -18,6 +18,6 @@ namespace PIK_AK_Acad.Counters.Calc
         /// <summary>
         /// Секции в доме
         /// </summary>
-        List<Section> Sections { get; set; }
+        public List<Section> Sections { get; set; } = new List<Section>();
     }
 }

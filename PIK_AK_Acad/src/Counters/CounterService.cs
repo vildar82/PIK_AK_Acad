@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,12 @@ namespace PIK_AK_Acad.Counters
         public static void CalcAndInsertTables (Document doc)
         {
             // Расчет счетчиков
-            Calc.CalcService calcService = new Calc.CalcService();
-            var scheme = calcService.Calc();                
+            Calcs.CalcService calcService = new Calcs.CalcService();
+            var scheme = calcService.Calc(doc.Name);
+
+            // Вставка таблицы
+            Tables.TableService tableService = new Tables.TableService(doc);
+            tableService.CreateAndInsert(scheme);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PIK_AK_Acad.Counters.Calc
+namespace PIK_AK_Acad.Counters.Calcs
 {
     /// <summary>
     /// секция счетчиков
@@ -12,16 +12,16 @@ namespace PIK_AK_Acad.Counters.Calc
     public class Section
     {
         /// <summary>
-        /// Номер секции
+        /// Имя секции
         /// </summary>
-        public int Number { get; set; }         
+        public string Name { get; set; }         
         /// <summary>
         /// Номер УСПД
         /// </summary>
-        public int USPD { get; set; }
+        public string USPD { get; set; }
         /// <summary>
         /// Этажи
         /// </summary>
-        public List<Floor> Floors { get; set; }
+        public List<Floor> Floors { get; set; } = new List<Floor>();        
     }
 }

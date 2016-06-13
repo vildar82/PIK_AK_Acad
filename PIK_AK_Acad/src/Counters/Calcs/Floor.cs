@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PIK_AK_Acad.Counters.Calc
+namespace PIK_AK_Acad.Counters.Calcs
 {
     /// <summary>
     /// этаж
@@ -19,5 +19,9 @@ namespace PIK_AK_Acad.Counters.Calc
         /// Кол квартир на этаже
         /// </summary>
         public int ApartmentCount { get; set; }
+        /// <summary>
+        /// Счетчики
+        /// </summary>
+        public List<Counter> Counters { get; set; } = new List<Counter>();
     }
 }

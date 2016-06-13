@@ -4,13 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PIK_AK_Acad.Counters.Calc
+namespace PIK_AK_Acad.Counters.Calcs
 {
     /// <summary>
     /// Счетчик - одно подключение
     /// </summary>
     public class Counter
     {
+        /// <summary>
+        /// Имя секции
+        /// </summary>
+        public string Section { get; set; }             
+        /// <summary>
+        /// Имя УСПД
+        /// </summary>
+        public string USPD { get; set; }             
         /// <summary>
         /// Номер этажа
         /// </summary>

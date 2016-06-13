@@ -53,7 +53,7 @@
     <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,12 +67,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Commands.cs" />
-    <Compile Include="src\Counters\Calc\Counter.cs" />
-    <Compile Include="src\Counters\Calc\CalcService.cs" />
-    <Compile Include="src\Counters\Calc\Floor.cs" />
-    <Compile Include="src\Counters\Calc\Scheme.cs" />
-    <Compile Include="src\Counters\Calc\Section.cs" />
+    <Compile Include="src\Counters\Calcs\Counter.cs" />
+    <Compile Include="src\Counters\Calcs\CalcService.cs" />
+    <Compile Include="src\Counters\Calcs\Floor.cs" />
+    <Compile Include="src\Counters\Calcs\Scheme.cs" />
+    <Compile Include="src\Counters\Calcs\Section.cs" />
     <Compile Include="src\Counters\CounterService.cs" />
+    <Compile Include="src\Counters\Tables\TableService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
