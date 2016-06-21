@@ -30,8 +30,12 @@ namespace PIK_AK_Acad.Counters.Calcs
 
             fileXls = getExcelfileScheme(dwgFile);
 
-            using (var xlPackage = new ExcelPackage(new FileInfo(fileXls)))
+            using (var xlPackage = new ExcelPackage())
             {
+                using (var stream = File.OpenRead(fileXls))
+                {
+                    xlPackage.Load(stream);
+                }
                 var worksheet = xlPackage.Workbook.Worksheets[1];
 
                 // Стартовая ячейка схемы
