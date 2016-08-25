@@ -22,5 +22,15 @@ namespace PIK_AK_Acad
                 Counters.CounterService.CalcAndInsertTables(doc);
             });
         }
+
+        [CommandMethod(Group, nameof(AK_CountersNumbering), CommandFlags.Modal)]
+        public void AK_CountersNumbering ()
+        {
+            AcadLib.CommandStart.Start(doc =>
+            {
+                var counter = new CounterNumbering.CountersNumberingService(doc);
+                counter.Numbering();
+            });
+        }
     }
 }
