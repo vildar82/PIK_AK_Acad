@@ -34,34 +34,39 @@ namespace PIK_AK_Acad.CounterNumbering.Counters
             return scale;
         }
 
-        public void InsertLeader (string blLeaderName,ref List<AcadLib.Blocks.CommonBlocks.Leader> leaders)
+        public void InsertLeader (string blLeaderName, ref List<AcadLib.Blocks.CommonBlocks.Leader> leaders, 
+            BlockTableRecord btrOwner, Transaction t)
         {            
-            using (var t = Db.TransactionManager.StartTransaction())
+            var ptLeader = GetLeaderPosition();
+            string value = Name + Number;
+            if (!FindOldLeader(ptLeader, value, ref leaders))
             {
-                var btrOwner = IdBtrOwner.GetObject(OpenMode.ForWrite) as BlockTableRecord;
-                var ptLeader = GetLeaderPosition();
-                DeleteOldLeader(ptLeader,ref leaders);
                 var blRefLeader = BlockInsert.InsertBlockRef(blLeaderName, ptLeader, btrOwner, t);
-                var bl = new BlockBase(blRefLeader, blLeaderName);
-                bl.FillPropValue("ОБОЗНАЧЕНИЕ", Name + Number);                
+                var leader = new AcadLib.Blocks.CommonBlocks.Leader(blRefLeader, blLeaderName);
+                leader.SetName(value);                
                 SetLeaderDynProp(blRefLeader);
-                t.Commit();
             }
         }
 
-        private void DeleteOldLeader (Point3d ptLeader, ref List<AcadLib.Blocks.CommonBlocks.Leader> leaders)
+        private bool FindOldLeader (Point3d ptLeader, string value,
+            ref List<AcadLib.Blocks.CommonBlocks.Leader> leaders)
         {
             var cannoscale = AcadLib.Scale.ScaleHelper.GetCurrentAnnoScale(Db);
             Tolerance = new Tolerance(2 * cannoscale, 2 * cannoscale);
-            var leadersOld = leaders.Where(l => l.Position.IsEqualTo(ptLeader, Tolerance)).ToList();
+            var leadersOld = leaders.Where(l => l.Position.IsEqualTo(ptLeader, Tolerance) &&
+                                l.Name.StartsWith(Name)).
+                                OrderBy(o=>(ptLeader-o.Position).Length).ToList();
             if (leadersOld.Any())
             {
-                foreach (var item in leadersOld)
+                leadersOld.First().SetName(value);
+                foreach (var item in leadersOld.Skip(1))
                 {
                     item.Delete();
                     leaders.Remove(item);
-                }                
+                }
+                return true;
             }
+            return false;
         }
 
         private Point3d GetLeaderPosition ()

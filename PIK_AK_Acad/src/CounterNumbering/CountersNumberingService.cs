@@ -98,36 +98,29 @@ namespace PIK_AK_Acad.CounterNumbering
 
         private void SetNumbering (List<ICounter> counters, List<AcadLib.Blocks.CommonBlocks.Leader> leaders)
         {
-            // Блок выноски
-            var leaderBtrId = GetLeaderBlock();            
-            foreach (var item in counters)
+            using (var t = Db.TransactionManager.StartTransaction())
             {
-                item.InsertLeader(BlLeaderName,ref leaders);
+                // Блок выноски
+                var leaderBtrId = GetLeaderBlock();
+                var btrOwner = Db.CurrentSpaceId.GetObject(OpenMode.ForWrite) as BlockTableRecord;
+                foreach (var item in counters)
+                {
+                    item.InsertLeader(BlLeaderName, ref leaders, btrOwner, t);
+                }
+                t.Commit();
             }
         }
 
         private ObjectId GetLeaderBlock ()
         {
             ObjectId idBtrLeader;
-
-            using (var t = Db.TransactionManager.StartTransaction())
-            {
-                var bt = Db.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
-                if (bt.Has(BlLeaderName))
-                {
-                    idBtrLeader = bt[BlLeaderName];
-                }
-                else
-                {
-                    idBtrLeader = AcadLib.Blocks.Block.CopyCommonBlockFromTemplate(BlLeaderName, Db);
-                }
-                t.Commit();
-            }
-            if (idBtrLeader.IsNull)
-            {
+            var bt = Db.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
+            if (bt.Has(BlLeaderName))            
+                idBtrLeader = bt[BlLeaderName];            
+            else            
+                idBtrLeader = AcadLib.Blocks.Block.CopyCommonBlockFromTemplate(BlLeaderName, Db);            
+            if (idBtrLeader.IsNull)            
                 throw new Exception($"Не определен блок выноски - {BlLeaderName}.");
-            }
-
             return idBtrLeader;
         }
     }

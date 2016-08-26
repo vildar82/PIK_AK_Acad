@@ -13,6 +13,7 @@ namespace PIK_AK_Acad.CounterNumbering.Counters
         string Name { get; set; }
         int Number { get; set; }
         Point3d Position { get; set; }
-        void InsertLeader (string blLeaderName,ref List<AcadLib.Blocks.CommonBlocks.Leader> leaders);
+        void InsertLeader (string blLeaderName,ref List<AcadLib.Blocks.CommonBlocks.Leader> leaders,
+            BlockTableRecord btrOwner, Transaction t);
     }
 }
