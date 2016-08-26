@@ -53,17 +53,11 @@ namespace PIK_AK_Acad.CounterNumbering.Counters
         {
             var cannoscale = AcadLib.Scale.ScaleHelper.GetCurrentAnnoScale(Db);
             Tolerance = new Tolerance(2 * cannoscale, 2 * cannoscale);
-            var leadersOld = leaders.Where(l => l.Position.IsEqualTo(ptLeader, Tolerance) &&
-                                l.Name.StartsWith(Name)).
+            var leadersOld = leaders.Where(l => l.Position.IsEqualTo(ptLeader, Tolerance)).
                                 OrderBy(o=>(ptLeader-o.Position).Length).ToList();
             if (leadersOld.Any())
             {
-                leadersOld.First().SetName(value);
-                foreach (var item in leadersOld.Skip(1))
-                {
-                    item.Delete();
-                    leaders.Remove(item);
-                }
+                leadersOld.First().SetName(value);                
                 return true;
             }
             return false;
