@@ -9,7 +9,7 @@ using AcadLib.Blocks.CommonBlocks;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
 
-namespace PIK_AK_Acad.CounterNumbering.Counters
+namespace PIK_SS_Acad.CounterNumbering.Counters
 {
     abstract class CounterBase : BlockBase,ICounter 
     {

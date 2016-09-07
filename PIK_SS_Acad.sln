@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIK_AK_Acad", "PIK_AK_Acad\PIK_AK_Acad.csproj", "{F1EFA817-9F75-4ACE-ADA5-D11156E7A9CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIK_SS_Acad", "PIK_SS_Acad\PIK_SS_Acad.csproj", "{F1EFA817-9F75-4ACE-ADA5-D11156E7A9CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

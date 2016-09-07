@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
-using PIK_AK_Acad.CounterNumbering.Counters;
+using PIK_SS_Acad.CounterNumbering.Counters;
 
-namespace PIK_AK_Acad.CounterNumbering
+namespace PIK_SS_Acad.CounterNumbering
 {
     class CountersNumberingService
     {

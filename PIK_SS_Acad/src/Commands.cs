@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using Autodesk.AutoCAD.Runtime;
 
 
-[assembly: CommandClass(typeof(PIK_AK_Acad.Commands))]
+[assembly: CommandClass(typeof(PIK_SS_Acad.Commands))]
 
-namespace PIK_AK_Acad
+namespace PIK_SS_Acad
 {
     public class Commands
     {
         public const string Group = "PIK";
 
-        [CommandMethod(Group, nameof(AK_Counters), CommandFlags.Modal)]
-        public void AK_Counters()
+        [CommandMethod(Group, nameof(SS_Counters), CommandFlags.Modal)]
+        public void SS_Counters()
         {
             AcadLib.CommandStart.Start(doc =>
             {
@@ -23,8 +23,8 @@ namespace PIK_AK_Acad
             });
         }
 
-        [CommandMethod(Group, nameof(AK_CountersNumbering), CommandFlags.Modal)]
-        public void AK_CountersNumbering ()
+        [CommandMethod(Group, nameof(SS_CountersNumbering), CommandFlags.Modal)]
+        public void SS_CountersNumbering ()
         {
             AcadLib.CommandStart.Start(doc =>
             {

@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using OfficeOpenXml;
 
-namespace PIK_AK_Acad.Counters.Calcs
+namespace PIK_SS_Acad.Counters.Calcs
 {
     public class CalcService
     {

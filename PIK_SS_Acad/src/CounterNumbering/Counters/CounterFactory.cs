@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autodesk.AutoCAD.DatabaseServices;
 
-namespace PIK_AK_Acad.CounterNumbering.Counters
+namespace PIK_SS_Acad.CounterNumbering.Counters
 {
     static class CounterFactory
     {

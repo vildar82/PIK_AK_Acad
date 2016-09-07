@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
 
-namespace PIK_AK_Acad.CounterNumbering.Counters
+namespace PIK_SS_Acad.CounterNumbering.Counters
 {
     interface ICounter
     {

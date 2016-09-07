@@ -9,9 +9,9 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Geometry;
-using PIK_AK_Acad.Counters.Calcs;
+using PIK_SS_Acad.Counters.Calcs;
 
-namespace PIK_AK_Acad.Counters.Tables
+namespace PIK_SS_Acad.Counters.Tables
 {
     public class TableService
     {

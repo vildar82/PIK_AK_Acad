@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autodesk.AutoCAD.ApplicationServices;
 
-namespace PIK_AK_Acad.Counters
+namespace PIK_SS_Acad.Counters
 {
     public static class CounterService
     {

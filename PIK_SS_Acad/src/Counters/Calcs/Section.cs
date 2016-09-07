@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PIK_AK_Acad.Counters.Calcs
+namespace PIK_SS_Acad.Counters.Calcs
 {
     /// <summary>
     /// секция счетчиков
