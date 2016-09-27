@@ -12,7 +12,7 @@ namespace PIK_SS_Acad.CounterNumbering.Counters
     /// </summary>
     class CounterQ : CounterBase
     {
-        public const string BlockName = "АК_Счетчик_Q";
+        public const string BlockName = "СС_Счетчик_Q";
         public CounterQ (BlockReference blRef, string blName) : base(blRef, blName)
         {
             Name = "Q";
