@@ -9,23 +9,21 @@ namespace PIK_SS_Acad.CounterNumbering.Counters
 {
     static class CounterFactory
     {
-        static Dictionary<string, Type> dictCountersType = new Dictionary<string, Type>()
-        {
-            { CounterQ.BlockName, typeof(CounterQ) },
-            { CounterByAttr.BlockName, typeof(CounterByAttr) },
-        };
+        //static Dictionary<string, Type> dictCountersType = new Dictionary<string, Type>()
+        //{            
+        //    { CounterByAttr.BlockNameStart, typeof(CounterByAttr) },
+        //};
 
         public static ICounter Create (ObjectId id)
         {
             ICounter counter = null;
             var blRef = id.GetObject(OpenMode.ForRead) as BlockReference;
             if (blRef != null)
-            {
-                Type blType;
+            {                
                 string blName = blRef.GetEffectiveName();
-                if (dictCountersType.TryGetValue(blName, out blType))
+                if (blName.StartsWith(CounterByAttr.BlockNameStart, StringComparison.OrdinalIgnoreCase))
                 {
-                    counter = (ICounter)Activator.CreateInstance(blType, blRef, blName);
+                    counter = (ICounter)Activator.CreateInstance(typeof(CounterByAttr), blRef, blName);
                 }
             }
             return counter;

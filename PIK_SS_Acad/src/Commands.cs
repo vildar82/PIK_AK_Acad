@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Autodesk.AutoCAD.Runtime;
 
-
 [assembly: CommandClass(typeof(PIK_SS_Acad.Commands))]
 
 namespace PIK_SS_Acad

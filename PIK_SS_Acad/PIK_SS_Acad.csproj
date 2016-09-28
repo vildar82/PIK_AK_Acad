@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\Autodesk\AutoCAD\Pik\Settings\Script\NET\АК\</OutputPath>
+    <OutputPath>..\..\..\..\Autodesk\AutoCAD\Pik\Settings\Script\NET\СС\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -72,7 +72,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Commands.cs" />
     <Compile Include="src\CounterNumbering\Counters\CounterByAttr.cs" />
-    <Compile Include="src\CounterNumbering\Counters\CounterQ.cs" />
     <Compile Include="src\CounterNumbering\Counters\CounterBase.cs" />
     <Compile Include="src\CounterNumbering\CountersNumberingService.cs" />
     <Compile Include="src\CounterNumbering\Counters\CounterFactory.cs" />
