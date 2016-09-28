@@ -41,7 +41,7 @@ namespace PIK_SS_Acad.CounterNumbering.Counters
             string value = Name + Number;
             if (!FindOldLeader(ptLeader, value, ref leaders))
             {
-                var blRefLeader = BlockInsert.InsertBlockRef(blLeaderName, ptLeader, btrOwner, t);
+                var blRefLeader = BlockInsert.InsertBlockRef(blLeaderName, ptLeader, btrOwner, t, 100);
                 var leader = new AcadLib.Blocks.CommonBlocks.Leader(blRefLeader, blLeaderName);
                 leader.SetName(value);                
                 SetLeaderDynProp(blRefLeader);

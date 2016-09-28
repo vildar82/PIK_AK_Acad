@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ namespace PIK_SS_Acad
     public class Commands
     {
         public const string Group = "PIK";
+        public static string UserGroup = AutoCAD_PIK_Manager.Settings.PikSettings.UserGroup;
+        public static string FileBlocksSS = Path.Combine(AutoCAD_PIK_Manager.Settings.PikSettings.LocalSettingsFolder, $@"Blocks\СС\СС_Блоки.dwg");
 
         [CommandMethod(Group, nameof(SS_Counters), CommandFlags.Modal)]
         public void SS_Counters()

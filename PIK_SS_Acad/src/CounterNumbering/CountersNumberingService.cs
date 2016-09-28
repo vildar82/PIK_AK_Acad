@@ -115,10 +115,15 @@ namespace PIK_SS_Acad.CounterNumbering
         {
             ObjectId idBtrLeader;
             var bt = Db.BlockTableId.GetObject(OpenMode.ForRead) as BlockTable;
-            if (bt.Has(BlLeaderName))            
-                idBtrLeader = bt[BlLeaderName];            
-            else            
-                idBtrLeader = AcadLib.Blocks.Block.CopyCommonBlockFromTemplate(BlLeaderName, Db);            
+            if (bt.Has(BlLeaderName))
+            {
+                idBtrLeader = bt[BlLeaderName];
+            }
+            else
+            {
+                //idBtrLeader = AcadLib.Blocks.Block.CopyBlockFromExternalDrawing(BlLeaderName, Commands.FileBlocksSS, Db);
+                idBtrLeader = AcadLib.Blocks.Block.CopyCommonBlockFromTemplate(BlLeaderName, Db);
+            }
             if (idBtrLeader.IsNull)            
                 throw new Exception($"Не определен блок выноски - {BlLeaderName}.");
             return idBtrLeader;
