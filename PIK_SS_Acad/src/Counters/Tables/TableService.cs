@@ -50,14 +50,7 @@ namespace PIK_SS_Acad.Counters.Tables
                 }
 
                 // Вставка таблиц
-                if (!DragSel.Drag(ed, idsTable.ToArray(), Point3d.Origin))
-                {
-                    foreach (var idTable in idsTable)
-                    {
-                        var table = idTable.GetObject(OpenMode.ForWrite);
-                        table.Erase();
-                    }
-                }                                    
+                DragSel.Drag(ed, idsTable.ToArray(), Point3d.Origin);                                                    
                 t.Commit();
             }
         }
